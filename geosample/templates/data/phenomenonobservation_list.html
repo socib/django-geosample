@@ -1,0 +1,22 @@
+{% extends "data/base.html" %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+
+{% block title_head %}{{ block.super }}: {% trans "Observation List" %}{% endblock %}
+
+{% block title %}
+{% trans "Observation List" %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-3">
+    {% crispy form %}
+  </div>
+  <div class="col-sm-9">
+    {% render_table table %}
+    <a class="btn btn-primary" href="{% url 'data_observation_create' %}"><i class="glyphicon glyphicon-plus"></i> {% trans 'Add' %} {% trans 'observation' %}</a>
+  </div>
+</div>
+{% endblock %}

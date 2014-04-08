@@ -1,0 +1,27 @@
+{% extends "data/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title_head %}{{ block.super }}: {% trans "Update Observation" %}{% endblock %}
+
+{% block title %}
+{% trans "Update Observation" %}
+{% endblock %}
+
+{% block content %}
+{% crispy form %}
+{% endblock %}
+
+{% block page_top_js %}
+<script src="{% static "js/open_layers/OpenLayers.js" %}"></script>
+<script src="{% static "gis/js/OLMapWidget.js" %}"></script>
+{% endblock page_top_js %}
+{% block map_options %}
+var map_options = {
+  point_zoom: 8,
+  default_zoom: 9,
+  default_lat: 2.58,
+  default_lon: 39.50
+};
+{% endblock %}
